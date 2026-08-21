@@ -1,0 +1,29 @@
+```{r}
+#| label: tbl-base
+#| cache: true
+#| cache.comments: false
+#| tbl-cap: "Descriptive statistics"
+#| tbl-pos: "H"
+
+vars <- names(ndr)
+vars <- setdiff(vars, c(
+  "debutar", "age", "hba1c", "systoliskt", "diastoliskt",
+  "vikt", "langd", "bmi",
+  "kolesterol", "triglycerider", "hdl", "ldl",
+  "kreatinin", "GFR", "uAlbCreatinine",
+  "shareGlucoseLast2W", "shareGlucoseRange", "sdCGMLast2W", "meanGlukosesLast2W", "snuffingEndYear", "slutatrokaar",
+  "scb_dispincome"
+))
+ndrtmp <- ndr %>%
+  mutate(across(all_of(vars), as.factor)) %>%
+  select(-lopnr, -sos_deathcause, -contains("dtm"))
+
+tab <- CreateTableOne(data = ndrtmp)
+
+
+default_kable(print(tab, printToggle = FALSE, missing = TRUE, ),
+  font_size = 7.5,
+  longtable = TRUE,
+  row.names = TRUE
+)
+```
