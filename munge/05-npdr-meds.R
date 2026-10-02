@@ -13,7 +13,7 @@ lmsel <- left_join(
 
 lmsel <- lmsel %>%
   mutate(diff = as.numeric(EDATUM - indexdtm)) %>%
-  filter(diff >= (-120), diff <= 0) %>%
+  filter(diff >= -120 & diff <= 7) %>%
   select(lopnr, indexdtm, ATC)
 
 ndr <- create_medvar(
@@ -22,16 +22,16 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(A10BJ|A10BX16)",
+  atc = "^A10BJ",
   medname = "glp1",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -40,25 +40,25 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(C03DA)",
+  atc = "^C03DA",
   medname = "mra",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(C07)",
+  atc = "^C07",
   medname = "bbl",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -67,7 +67,7 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -76,25 +76,25 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(C10)",
+  atc = "^C10",
   medname = "lipidlowering",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(A10A)",
+  atc = "^A10A",
   medname = "insulin",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -103,7 +103,7 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -112,7 +112,7 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -121,7 +121,7 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -130,16 +130,16 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(B01AC)",
+  atc = "^B01AC",
   medname = "antiplatelet",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 ndr <- create_medvar(
@@ -148,7 +148,7 @@ ndr <- create_medvar(
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
-  metatime = "-120 - 0",
+  metatime = "-120 - 7",
   valsclass = "num"
 )
 rm(lm)

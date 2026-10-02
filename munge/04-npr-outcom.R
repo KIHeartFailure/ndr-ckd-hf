@@ -106,7 +106,7 @@ ndr <- create_sosvar(
   diavar = DIA_all,
   type = "com",
   name = "pad",
-  diakod = " 440C| 443X| I702| I739| I702| I73",
+  diakod = " 440C| 443X| I702| I739",
   valsclass = "num",
   warnings = FALSE
 )
@@ -162,7 +162,7 @@ ndr <- create_sosvar(
   diavar = DIA_all,
   type = "com",
   name = "valvular",
-  diakod = " I0[5-8]| I3[4-9]| Q22| Q23[0-3]| Q23[0-3]| Q23[5-9]| Z95[2-4]",
+  diakod = " I0[5-8]| I3[4-9]| Q22| Q23[0-3]| Q23[5-9]| Z95[2-4]",
   stoptime = -5 * 365.25,
   valsclass = "num",
   warnings = FALSE
@@ -273,7 +273,7 @@ ndr <- create_sosvar(
 # Outcomes ----------------------------------------------------------------
 
 hfhosp <- patreg %>%
-  filter(sos_source == "sv" & str_detect(DIA_all, " I110| I130| I132| I255| I420| I423| I42[5-9]| I43| I50| J81| K761| R570")) %>%
+  filter(str_detect(HDIA, " I110| I130| I132| I255| I420| I423| I42[5-9]| I43| I50| J81| K761| R570")) %>%
   group_by(lopnr) %>%
   arrange(INDATUM) %>%
   slice(1) %>%
@@ -284,7 +284,6 @@ hfhosp <- patreg %>%
 ndr <- left_join(ndr, hfhosp, by = "lopnr")
 
 rsdata <- rsdata %>%
-  filter(shf_location == "In-patient") %>%
   group_by(lopnr) %>%
   arrange(INDATUM) %>%
   slice(1) %>%

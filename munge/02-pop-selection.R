@@ -88,7 +88,6 @@ flow <- flow %>%
     N = nrow(ndr)
   )
 
-
 hfpop <- patreg %>%
   filter(str_detect(DIA_all, " I110| I130| I132| I255| I420| I423| I42[5-9]| I43| I50| J81| K761| R570| 414W| 425E| 425F| 425G| 425H| 425W| 425X| 428")) %>%
   group_by(lopnr) %>%

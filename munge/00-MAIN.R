@@ -45,8 +45,9 @@ save(
   )
 )
 
-
-write_dta(ndr,
-  path = here(paste0("data/clean-data/ndrdata_", Sys.Date(), ".dta")),
-  version = 14
+save(
+  file = here("data/clean-data/ndrdata_20261002.RData"),
+  list = c(
+    "ndr"
+  )
 )

@@ -59,9 +59,9 @@ vars <- vars %>%
 
 footnotetext <- c(
   "From the year preceding baseline.",
-  "Derived from diagnoses/operations in all positions, except for Malignant cancer that is only in main position, in-patient and out-patient speciality care within 5 years prior to index (ICD-10)/1987 (ICD-9) except for Malignant cancer that are within 3 years prior to index.",
-  "Derived from main position in-patient care.",
-  "Derived from ATC codes from dispensed medications within 120 days prior to index."
+  "Derived from diagnoses/operations in all positions, except for Malignant cancer that is only in main position, in-patient and out-patient speciality care within 5 years prior to index (ICD-10)/1987 (ICD-9)/any time (however, see restrictions in the NPR and code usage) for procedure codes, except for Malignant cancer that are within 3 years prior to index.",
+  "Derived from all position in-patient and out-patient speciality care.",
+  "Derived from ATC codes from dispensed medications within 120 days prior to index up untill 7 days after index."
 )
 
 vars <- vars %>%
