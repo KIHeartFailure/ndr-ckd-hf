@@ -272,8 +272,8 @@ ndr <- create_sosvar(
 
 # Outcomes ----------------------------------------------------------------
 
-hfhosp <- patreg %>%
-  filter(str_detect(HDIA, " I110| I130| I132| I255| I420| I423| I42[5-9]| I43| I50| J81| K761| R570")) %>%
+hfany <- patreg %>%
+  filter(str_detect(DIA_all, " I110| I130| I132| I255| I420| I423| I42[5-9]| I43| I50| J81| K761| R570")) %>%
   group_by(lopnr) %>%
   arrange(INDATUM) %>%
   slice(1) %>%
@@ -281,7 +281,7 @@ hfhosp <- patreg %>%
   select(lopnr, INDATUM) %>%
   rename(sos_hfhdtm = INDATUM)
 
-ndr <- left_join(ndr, hfhosp, by = "lopnr")
+ndr <- left_join(ndr, hfany, by = "lopnr")
 
 rsdata <- rsdata %>%
   group_by(lopnr) %>%
