@@ -35,8 +35,17 @@ ndr <- create_medvar(
   valsclass = "num"
 )
 ndr <- create_medvar(
-  atc = "^(C09A|C09B|C09C|C09D)",
-  medname = "rasiarni",
+  atc = "^(C09A|C09B|C09C|C09D(?!X04))",
+  medname = "aceiarb_noarni",
+  cohortdata = ndr,
+  meddata = lmsel,
+  id = c("lopnr"),
+  metatime = "-120 - 7",
+  valsclass = "num"
+)
+ndr <- create_medvar(
+  atc = "^C09DX04",
+  medname = "arni",
   cohortdata = ndr,
   meddata = lmsel,
   id = c("lopnr"),
